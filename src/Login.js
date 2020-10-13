@@ -9,9 +9,9 @@ import Logo from './AkhilGrandhiLogo.png'
 function Login() {
 
     const [{user}, dispatch] = useStateValue();
-
+    
     const signIn = () => {
-        
+        console.log(user);
         auth.signInWithPopup(provider)
             .then((result) => {
                 dispatch({
