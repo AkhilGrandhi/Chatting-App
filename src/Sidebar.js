@@ -44,7 +44,14 @@ function Sidebar() {
                     </IconButton> 
                     <IconButton>
                         <ImageIcon />
-                    </IconButton>                    
+                    </IconButton> 
+                    <IconButton>
+                        <DonutLargeIcon />
+                    </IconButton> 
+                      
+                    <IconButton>
+                        <MoreVertIcon />
+                    </IconButton>                 
                     
                 </div>
             </div>
