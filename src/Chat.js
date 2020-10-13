@@ -18,7 +18,7 @@ function Chat() {
     const {roomId} = useParams();
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
-    const [{user}, dispatch] = useStateValue();
+    const [{user}] = useStateValue();
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0);
 
