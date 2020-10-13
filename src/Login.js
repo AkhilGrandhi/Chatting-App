@@ -8,7 +8,7 @@ import Logo from './AkhilGrandhiLogo.png'
 
 function Login() {
 
-    const [{}, dispatch] = useStateValue();
+    const [{user}, dispatch] = useStateValue();
 
     const signIn = () => {
         
