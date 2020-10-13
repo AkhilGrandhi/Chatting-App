@@ -29,7 +29,7 @@ function Login() {
                 <a href="https://akhilgrandhi.netlify.app/" >
                 <img 
                     src={Logo}
-                    alt="Img"
+                    alt="logo__image"
                 />
                 </a>
                 <div className="login__text">

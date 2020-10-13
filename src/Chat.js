@@ -120,8 +120,7 @@ function Chat() {
                     <h3>{roomName}</h3>
                     <p> Last seen {" "}
                         {new Date(
-                            messages[messages.length-1]?.
-                            timestamp?.toDate()
+                            messages[messages.length-1]?.timestamp?.toDate()
                         ).toUTCString()}
                     </p>
                     
@@ -149,7 +148,7 @@ function Chat() {
                     </span>                   
 
                     <div className={`post ${message.imageUrl == null && "post__disable"}`}>
-                        <img className="post__image" src={message.imageUrl} alt="image" />  
+                        <img className="post__image" src={message.imageUrl} alt="post__image" />  
                     </div>      
 
                         {message.message}        
