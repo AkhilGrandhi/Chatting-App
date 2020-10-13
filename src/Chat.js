@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Avatar, IconButton } from '@material-ui/core';
-import ImageIcon from '@material-ui/icons/Image';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import './Chat.css';
