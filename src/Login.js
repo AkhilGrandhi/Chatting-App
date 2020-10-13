@@ -26,7 +26,7 @@ function Login() {
         <div className="login">
             <div className="login__container">
                 <h3>Developed By..</h3>
-                <a href="https://akhilgrandhi.netlify.app/" target="_blank">
+                <a href="https://akhilgrandhi.netlify.app/" >
                 <img 
                     src={Logo}
                     alt="Img"
