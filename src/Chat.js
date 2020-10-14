@@ -27,9 +27,8 @@ function Chat() {
     
     const imageShowHandler= ()=>{
         var temp = show;
-        console.log(temp)
         showHandler(!temp)
-        console.log(show)
+        
     }
 
 
