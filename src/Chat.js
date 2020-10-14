@@ -9,6 +9,8 @@ import firebase from "firebase";
 import { useStateValue} from "./StateProvider"
 import PublishIcon from '@material-ui/icons/Publish';
 import SendIcon from '@material-ui/icons/Send';
+import ImageIcon from '@material-ui/icons/Image';
+
 
 
 function Chat() {
@@ -21,6 +23,13 @@ function Chat() {
     const [{user}] = useStateValue();
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0);
+    const [show,showHandler]= useState(false);
+    
+    const imageShowHandler= ()=>{
+        var temp = show;
+        showHandler(!temp)
+    }
+
 
     useEffect(() => {
         if(roomId) {
@@ -42,6 +51,12 @@ function Chat() {
     useEffect(() => {
         setSeed(Math.floor(Math.random()*5000));
     }, [roomId])
+
+
+
+
+    
+
 
 
 
@@ -110,11 +125,20 @@ function Chat() {
         )
     }
 
+    
+
+
+    
+
+        
+
+
+
+
     return (
         <div className="chat">
             <div className="chat__header">
-                <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
-            
+                <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />            
 
                 <div className="chat__headerInfo">
                     <h3>{roomName}</h3>
@@ -128,41 +152,72 @@ function Chat() {
 
                 <div className="chat__bodyRight">
                      {/* <progress className="imageupload__progress" value={progress} max="100" /> */}
-                     <LinearProgress variant="determinate" value={progress} max="100" />
+                        <LinearProgress className="imageupload__progress" variant="determinate" value={progress} max="100" />
 
                         <IconButton>                             
                             <input type="file" onChange={handleChange} />                            
                         </IconButton> 
                         <IconButton onClick={handleUpload}>
                             <PublishIcon />
-                        </IconButton>        
+                        </IconButton>  
+                        <IconButton >
+                             <ImageIcon onClick={imageShowHandler}/>
+                        </IconButton>       
                 </div>
             </div>
             
-            <div className="chat__body">
-                {   messages.map( (message) => (
+            
+            <div  className={`chat__body ${show === true && "chat__disable"}`}>
+                            {  messages.map( (message) => (
+    
+                                        <p className={`chat__message ${message.name === user.displayName && "chat__reciever"}`}>
+                                        <span className="chat__name" >
+                                            {message.name}
+                                        </span>                   
+    
+                                        <div className={`post ${message.imageUrl == null && "post__disable"}`}>
+                                            <img className="post__image" src={message.imageUrl} alt="post__image" />  
+                                        </div>      
+    
+                                            {message.message}        
+    
+                                        <span className="chat__timestamp" >
+                                            {new Date(message.timestamp?.toDate()).toUTCString()}
+                                        </span>
+                                        </p>                  
+    
+                                    ))
+                             }                    
+                </div>
 
-                    <p className={`chat__message ${message.name === user.displayName && "chat__reciever"}`}>
-                    <span className="chat__name" >
-                        {message.name}
-                    </span>                   
 
-                    <div className={`post ${message.imageUrl == null && "post__disable"}`}>
-                        <img className="post__image" src={message.imageUrl} alt="post__image" />  
-                    </div>      
+                 
+            <div className={show===true ? "chat__body": "chat__disable"}>
+                            {  messages.map( (message) => (
+                                        <div className={`imgCss ${message.imageUrl == null && "post__disable"}`}> 
+                                            <p className={`chat__message ${message.name === user.displayName && "chat__reciever"}`}>
+                                            <span className="chat__name" >
+                                                {message.name}
+                                            </span>                   
+        
+                                            <div className={`post ${message.imageUrl == null && "post__disable"}`}>
+                                                <img className="post__image" src={message.imageUrl} alt="post__image" />  
+                                            </div>      
+        
+                                                    
+        
+                                            <span className="chat__timestamp" >
+                                                {new Date(message.timestamp?.toDate()).toUTCString()}
+                                            </span>
+                                            </p>                  
+                                        </div>
+                                    ))
+                             }                    
+                </div>
 
-                        {message.message}        
 
-                    <span className="chat__timestamp" >
-                        {new Date(message.timestamp?.toDate()).toUTCString()}
-                    </span>
-                    </p>                  
 
-                ))}
-                
-                
-            </div>
-
+    
             <div className="chat__footer">
                 <IconButton>
                     <InsertEmoticonIcon />

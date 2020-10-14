@@ -1,12 +1,17 @@
 .post{
-    max-width: 350px;
-    
-    margin-bottom: 8px;
-    
+    max-width: 350px;    
+    margin-bottom: 8px;    
 }
 
+.imgCss{
+    padding: 0;
+}
 
 .post__disable{
+    display: none !important;
+}
+
+.chat__disable{
     display: none !important;
 }
 
@@ -15,6 +20,11 @@
     object-fit: contain;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
+}
+
+.imageupload__progress{
+    width: 100%;
+    border-radius: 8px;
 }
 
 .chat{
@@ -53,6 +63,7 @@
     background-position: center;
     padding: 30px;
     overflow: scroll;
+    display: block;
     
 }
 

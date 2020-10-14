@@ -1,6 +1,6 @@
 import { Avatar, IconButton } from '@material-ui/core';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
-import ChatIcon from '@material-ui/icons/Chat';
+// import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ImageIcon from '@material-ui/icons/Image';
 import React, { useEffect, useState } from 'react';
@@ -39,9 +39,7 @@ function Sidebar() {
                 <div className="sidebar__headerRight">
                      
                     
-                    <IconButton>
-                        <ChatIcon />
-                    </IconButton> 
+                    
                     <IconButton>
                         <ImageIcon />
                     </IconButton> 
